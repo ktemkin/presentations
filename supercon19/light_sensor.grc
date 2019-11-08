@@ -10,7 +10,7 @@ options:
     gen_linking: dynamic
     generate_options: qt_gui
     hier_block_src_path: '.:'
-    id: color_light_sensor
+    id: light_sensor
     max_nouts: '0'
     output_language: python
     placement: (0,0)
@@ -76,24 +76,7 @@ blocks:
     bus_structure: null
     coordinate: [1960, 760.0]
     rotation: 0
-    state: enabled
-- name: blocks_char_to_float_0
-  id: blocks_char_to_float
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale: '255'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [584, 472.0]
-    rotation: 0
-    state: true
+    state: disabled
 - name: blocks_complex_to_float_0
   id: blocks_complex_to_float
   parameters:
@@ -109,7 +92,7 @@ blocks:
     bus_structure: null
     coordinate: [1576, 764.0]
     rotation: 0
-    state: enabled
+    state: disabled
 - name: i2c_register_source_0
   id: i2c_register_source
   parameters:
@@ -120,8 +103,11 @@ blocks:
     data_to_write: '0xac'
     maxoutbuf: '0'
     minoutbuf: '0'
-    prelude_script: /home/ktemkin/Projects/talk-demos/supercon19/light_sensor_prelude.py
-    read_length: '1'
+    normalize_by: '255'
+    prelude: gf.i2c.transmit(0x39, [0x80, 0x03], 0); gf.i2c.transmit(0x39, [0x81,
+      0b10000], 0)
+    prelude_script: ''
+    read_length: '2'
     sample_rate: samp_rate
   states:
     bus_sink: false
@@ -130,35 +116,6 @@ blocks:
     coordinate: [144, 416.0]
     rotation: 0
     state: true
-- name: qtgui_sink_x_0
-  id: qtgui_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    bw: 48e3
-    comment: ''
-    fc: '0'
-    fftsize: '1024'
-    gui_hint: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: '1024'
-    plotconst: 'True'
-    plotfreq: 'True'
-    plottime: 'True'
-    plotwaterfall: 'True'
-    rate: '10'
-    showports: 'False'
-    showrf: 'False'
-    type: complex
-    wintype: firdes.WIN_BLACKMAN_hARRIS
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [1880, 496.0]
-    rotation: 0
-    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -188,7 +145,7 @@ blocks:
     color9: dark green
     comment: ''
     ctrlpanel: 'False'
-    entags: 'True'
+    entags: 'False'
     grid: 'False'
     gui_hint: ''
     label1: Signal 1
@@ -234,7 +191,7 @@ blocks:
     tr_slope: qtgui.TRIG_SLOPE_POS
     tr_tag: '""'
     type: float
-    update_time: '1'
+    update_time: '0.01'
     width1: '1'
     width10: '1'
     width2: '1'
@@ -253,9 +210,70 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [944, 668.0]
+    coordinate: [736, 740.0]
     rotation: 0
-    state: enabled
+    state: disabled
+- name: qtgui_waterfall_sink_x_0
+  id: qtgui_waterfall_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    axislabels: 'True'
+    bw: 48e6
+    color1: '0'
+    color10: '0'
+    color2: '0'
+    color3: '0'
+    color4: '0'
+    color5: '0'
+    color6: '0'
+    color7: '0'
+    color8: '0'
+    color9: '0'
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    freqhalf: 'True'
+    grid: 'False'
+    gui_hint: ''
+    int_max: '10'
+    int_min: '-140'
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    nconnections: '1'
+    showports: 'False'
+    type: complex
+    update_time: '0.01'
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1944, 500.0]
+    rotation: 0
+    state: true
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
@@ -279,11 +297,10 @@ blocks:
 
 connections:
 - [analog_frequency_modulator_fc_0, '0', blocks_complex_to_float_0, '0']
-- [analog_frequency_modulator_fc_0, '0', qtgui_sink_x_0, '0']
-- [blocks_char_to_float_0, '0', qtgui_time_sink_x_0, '0']
-- [blocks_char_to_float_0, '0', rational_resampler_xxx_0, '0']
+- [analog_frequency_modulator_fc_0, '0', qtgui_waterfall_sink_x_0, '0']
 - [blocks_complex_to_float_0, '0', audio_sink_0, '0']
-- [i2c_register_source_0, '0', blocks_char_to_float_0, '0']
+- [i2c_register_source_0, '0', qtgui_time_sink_x_0, '0']
+- [i2c_register_source_0, '0', rational_resampler_xxx_0, '0']
 - [rational_resampler_xxx_0, '0', analog_frequency_modulator_fc_0, '0']
 
 metadata:

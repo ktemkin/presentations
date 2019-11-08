@@ -57,7 +57,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1224, 560.0]
+    coordinate: [1216, 464.0]
     rotation: 0
     state: enabled
 - name: audio_sink_0
@@ -74,26 +74,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1856, 680.0]
+    coordinate: [1856, 576.0]
     rotation: 0
-    state: true
-- name: blocks_char_to_float_0
-  id: blocks_char_to_float
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    scale: '100'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [480, 312.0]
-    rotation: 0
-    state: true
+    state: disabled
 - name: blocks_complex_to_float_0
   id: blocks_complex_to_float
   parameters:
@@ -107,9 +90,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1472, 676.0]
+    coordinate: [1472, 580.0]
     rotation: 0
-    state: true
+    state: disabled
 - name: i2c_register_source_0
   id: i2c_register_source
   parameters:
@@ -120,13 +103,15 @@ blocks:
     data_to_write: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
+    normalize_by: '100'
+    prelude_script: ''
     read_length: '1'
     sample_rate: samp_rate
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [88, 272.0]
+    coordinate: [80, 168.0]
     rotation: 0
     state: true
 - name: qtgui_sink_x_0
@@ -155,9 +140,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1776, 416.0]
+    coordinate: [1776, 312.0]
     rotation: 0
-    state: true
+    state: enabled
 - name: rational_resampler_xxx_0
   id: rational_resampler_xxx
   parameters:
@@ -175,16 +160,15 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [816, 360.0]
+    coordinate: [712, 240.0]
     rotation: 0
-    state: true
+    state: enabled
 
 connections:
 - [analog_frequency_modulator_fc_0, '0', blocks_complex_to_float_0, '0']
 - [analog_frequency_modulator_fc_0, '0', qtgui_sink_x_0, '0']
-- [blocks_char_to_float_0, '0', rational_resampler_xxx_0, '0']
 - [blocks_complex_to_float_0, '0', audio_sink_0, '0']
-- [i2c_register_source_0, '0', blocks_char_to_float_0, '0']
+- [i2c_register_source_0, '0', rational_resampler_xxx_0, '0']
 - [rational_resampler_xxx_0, '0', analog_frequency_modulator_fc_0, '0']
 
 metadata:

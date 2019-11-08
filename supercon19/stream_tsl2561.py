@@ -10,7 +10,7 @@ from greatfet import GreatFET
 FREQUENCY    = 1000
 ADDRESS      = 0x39
 WRITE_DATA   = bytes([0xac])
-READ_LENGTH  = 1
+READ_LENGTH  = 2
 
 BUFFER_SIZE  = 4096
 TIMEOUT      = 10
@@ -23,8 +23,8 @@ gf = GreatFET()
 dev_id = gf.i2c.transmit(ADDRESS, [0x80, 0x03], 0)
 
 
-# Set the gain to 1x, and the fastest sample interval.
-dev_id = gf.i2c.transmit(ADDRESS, [0x81, 0x00], 0)
+# Set the gain to 16x, and the fastest sample interval.
+dev_id = gf.i2c.transmit(ADDRESS, [0x81, 0b10000], 0)
 
 
 endpoint = gf.apis.i2c.stream_periodic_read(FREQUENCY, ADDRESS, READ_LENGTH, WRITE_DATA)
