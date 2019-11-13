@@ -76,7 +76,7 @@ blocks:
     bus_structure: null
     coordinate: [1856, 576.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_complex_to_float_0
   id: blocks_complex_to_float
   parameters:
@@ -92,7 +92,7 @@ blocks:
     bus_structure: null
     coordinate: [1472, 580.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: i2c_register_source_0
   id: i2c_register_source
   parameters:
@@ -104,6 +104,7 @@ blocks:
     maxoutbuf: '0'
     minoutbuf: '0'
     normalize_by: '100'
+    prelude: ''
     prelude_script: ''
     read_length: '1'
     sample_rate: samp_rate

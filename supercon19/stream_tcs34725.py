@@ -8,8 +8,8 @@ import array
 from greatfet import GreatFET
 
 FREQUENCY    = 1000
-ADDRESS      = 0x39
-WRITE_DATA   = bytes([0xac])
+ADDRESS      = 0x52 >> 1
+WRITE_DATA   = bytes([0xb4])
 READ_LENGTH  = 2
 
 BUFFER_SIZE  = 4096
