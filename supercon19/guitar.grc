@@ -1,40 +1,6 @@
-options:
-  parameters:
-    author: mossmann
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
-    comment: ''
-    copyright: ''
-    description: Use an LSM6DSM accelerometer connected via GreatFET One as a guitar
-      pickup.
-    gen_cmake: 'On'
-    gen_linking: dynamic
-    generate_options: qt_gui
-    hier_block_src_path: '.:'
-    id: guitar
-    max_nouts: '0'
-    output_language: python
-    placement: (0,0)
-    qt_qss_theme: ''
-    realtime_scheduling: ''
-    run: 'True'
-    run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
-    thread_safe_setters: ''
-    title: Accelerometer Guitar Amplifier
-    window_size: ''
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [8, 8]
-    rotation: 0
-    state: enabled
-
 blocks:
-- name: post
-  id: variable_qtgui_range
+- id: variable_qtgui_range
+  name: post
   parameters:
     comment: ''
     gui_hint: ''
@@ -51,11 +17,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 544.0]
+    coordinate:
+    - 16.0
+    - 856.0
     rotation: 0
     state: true
-- name: pre
-  id: variable_qtgui_range
+- id: variable_qtgui_range
+  name: pre
   parameters:
     comment: These go to eleven.
     gui_hint: ''
@@ -72,11 +40,36 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 784.0]
+    coordinate:
+    - 16.0
+    - 584.0
     rotation: 0
     state: true
-- name: samp_rate
-  id: variable
+- id: variable_qtgui_range
+  name: reverb
+  parameters:
+    comment: ''
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '0'
+    step: '.1'
+    stop: '11.1'
+    value: '0.2'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 16.0
+    - 1096.0
+    rotation: 0
+    state: true
+- id: variable
+  name: samp_rate
   parameters:
     comment: ''
     value: '6621'
@@ -84,11 +77,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [16, 416.0]
+    coordinate:
+    - 368.0
+    - 24.0
     rotation: 0
     state: enabled
-- name: analog_rail_ff_0
-  id: analog_rail_ff
+- id: analog_rail_ff
+  name: analog_rail_ff_0
   parameters:
     affinity: ''
     alias: ''
@@ -101,11 +96,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [840, 800.0]
+    coordinate:
+    - 560.0
+    - 904.0
     rotation: 0
     state: true
-- name: audio_sink_0
-  id: audio_sink
+- id: audio_sink
+  name: audio_sink_0
   parameters:
     affinity: ''
     alias: ''
@@ -118,11 +115,54 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1448, 864.0]
+    coordinate:
+    - 1696.0
+    - 1016.0
     rotation: 0
     state: enabled
-- name: blocks_multiply_const_vxx_0
-  id: blocks_multiply_const_vxx
+- id: blocks_add_xx
+  name: blocks_add_xx_0
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_inputs: '2'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1456.0
+    - 992.0
+    rotation: 0
+    state: true
+- id: blocks_delay
+  name: blocks_delay_0
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: reverb
+    delay: '10000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    num_ports: '1'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 912.0
+    - 1160.0
+    rotation: 0
+    state: enabled
+- id: blocks_multiply_const_vxx
+  name: blocks_multiply_const_vxx_0
   parameters:
     affinity: ''
     alias: ''
@@ -136,11 +176,33 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [600, 736.0]
+    coordinate:
+    - 432.0
+    - 744.0
     rotation: 0
     state: enabled
-- name: blocks_multiply_const_vxx_2
-  id: blocks_multiply_const_vxx
+- id: blocks_multiply_const_vxx
+  name: blocks_multiply_const_vxx_1
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: reverb/11
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: float
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 1136.0
+    - 1160.0
+    rotation: 0
+    state: true
+- id: blocks_multiply_const_vxx
+  name: blocks_multiply_const_vxx_2
   parameters:
     affinity: ''
     alias: ''
@@ -154,11 +216,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1112, 816.0]
+    coordinate:
+    - 864.0
+    - 920.0
     rotation: 0
     state: true
-- name: blocks_multiply_const_vxx_2_0
-  id: blocks_multiply_const_vxx
+- id: blocks_multiply_const_vxx
+  name: blocks_multiply_const_vxx_2_0
   parameters:
     affinity: ''
     alias: ''
@@ -172,11 +236,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1112, 720.0]
+    coordinate:
+    - 864.0
+    - 760.0
     rotation: 0
     state: true
-- name: dc_blocker_xx_0_0
-  id: dc_blocker_xx
+- id: dc_blocker_xx
+  name: dc_blocker_xx_0_0
   parameters:
     affinity: ''
     alias: ''
@@ -194,11 +260,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [872, 160.0]
+    coordinate:
+    - 864.0
+    - 120.0
     rotation: 0
     state: enabled
-- name: i2c_register_source_0
-  id: i2c_register_source
+- id: i2c_register_source
+  name: i2c_register_source_0
   parameters:
     address: '0x6b'
     affinity: ''
@@ -212,16 +280,17 @@ blocks:
     prelude_script: ''
     read_length: '2'
     sample_rate: samp_rate
-    signed: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [392, 144.0]
+    coordinate:
+    - 384.0
+    - 200.0
     rotation: 0
     state: enabled
-- name: qtgui_freq_sink_x_0
-  id: qtgui_freq_sink_x
+- id: qtgui_freq_sink_x
+  name: qtgui_freq_sink_x_0
   parameters:
     affinity: ''
     alias: ''
@@ -297,11 +366,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1336, 196.0]
+    coordinate:
+    - 1376.0
+    - 96.0
     rotation: 0
     state: true
-- name: qtgui_time_sink_x_0
-  id: qtgui_time_sink_x
+- id: qtgui_time_sink_x
+  name: qtgui_time_sink_x_0
   parameters:
     affinity: ''
     alias: ''
@@ -394,11 +465,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1448, 708.0]
+    coordinate:
+    - 1568.0
+    - 744.0
     rotation: 0
     state: true
-- name: rational_resampler_xxx_0
-  id: rational_resampler_xxx
+- id: rational_resampler_xxx
+  name: rational_resampler_xxx_0
   parameters:
     affinity: ''
     alias: ''
@@ -420,21 +493,102 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1016, 424.0]
+    coordinate:
+    - 832.0
+    - 424.0
     rotation: 180
     state: enabled
-
 connections:
-- [analog_rail_ff_0, '0', blocks_multiply_const_vxx_2, '0']
-- [blocks_multiply_const_vxx_0, '0', analog_rail_ff_0, '0']
-- [blocks_multiply_const_vxx_0, '0', blocks_multiply_const_vxx_2_0, '0']
-- [blocks_multiply_const_vxx_2, '0', audio_sink_0, '0']
-- [blocks_multiply_const_vxx_2, '0', qtgui_time_sink_x_0, '1']
-- [blocks_multiply_const_vxx_2_0, '0', qtgui_time_sink_x_0, '0']
-- [dc_blocker_xx_0_0, '0', qtgui_freq_sink_x_0, '0']
-- [dc_blocker_xx_0_0, '0', rational_resampler_xxx_0, '0']
-- [i2c_register_source_0, '0', dc_blocker_xx_0_0, '0']
-- [rational_resampler_xxx_0, '0', blocks_multiply_const_vxx_0, '0']
-
+- - analog_rail_ff_0
+  - '0'
+  - blocks_multiply_const_vxx_2
+  - '0'
+- - blocks_add_xx_0
+  - '0'
+  - audio_sink_0
+  - '0'
+- - blocks_add_xx_0
+  - '0'
+  - qtgui_time_sink_x_0
+  - '1'
+- - blocks_delay_0
+  - '0'
+  - blocks_multiply_const_vxx_1
+  - '0'
+- - blocks_multiply_const_vxx_0
+  - '0'
+  - analog_rail_ff_0
+  - '0'
+- - blocks_multiply_const_vxx_0
+  - '0'
+  - blocks_multiply_const_vxx_2_0
+  - '0'
+- - blocks_multiply_const_vxx_1
+  - '0'
+  - blocks_add_xx_0
+  - '1'
+- - blocks_multiply_const_vxx_2
+  - '0'
+  - blocks_add_xx_0
+  - '0'
+- - blocks_multiply_const_vxx_2
+  - '0'
+  - blocks_delay_0
+  - '0'
+- - blocks_multiply_const_vxx_2_0
+  - '0'
+  - qtgui_time_sink_x_0
+  - '0'
+- - dc_blocker_xx_0_0
+  - '0'
+  - qtgui_freq_sink_x_0
+  - '0'
+- - dc_blocker_xx_0_0
+  - '0'
+  - rational_resampler_xxx_0
+  - '0'
+- - i2c_register_source_0
+  - '0'
+  - dc_blocker_xx_0_0
+  - '0'
+- - rational_resampler_xxx_0
+  - '0'
+  - blocks_multiply_const_vxx_0
+  - '0'
 metadata:
   file_format: 1
+options:
+  parameters:
+    author: mossmann
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: Use an LSM6DSM accelerometer connected via GreatFET One as a guitar
+      pickup.
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: guitar
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Accelerometer Guitar Amplifier
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 8
+    - 8
+    rotation: 0
+    state: enabled
