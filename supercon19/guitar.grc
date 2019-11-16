@@ -51,7 +51,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 428.0]
+    coordinate: [8, 544.0]
     rotation: 0
     state: true
 - name: pre
@@ -72,7 +72,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 292.0]
+    coordinate: [16, 784.0]
     rotation: 0
     state: true
 - name: samp_rate
@@ -84,7 +84,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [184, 12]
+    coordinate: [16, 416.0]
     rotation: 0
     state: enabled
 - name: analog_rail_ff_0
@@ -101,7 +101,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 476.0]
+    coordinate: [840, 800.0]
     rotation: 0
     state: true
 - name: audio_sink_0
@@ -118,7 +118,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [728, 476.0]
+    coordinate: [1448, 864.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_const_vxx_0
@@ -136,7 +136,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [208, 404.0]
+    coordinate: [600, 736.0]
     rotation: 0
     state: enabled
 - name: blocks_multiply_const_vxx_2
@@ -154,7 +154,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 460.0]
+    coordinate: [1112, 816.0]
     rotation: 0
     state: true
 - name: blocks_multiply_const_vxx_2_0
@@ -172,7 +172,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [520, 380.0]
+    coordinate: [1112, 720.0]
     rotation: 0
     state: true
 - name: dc_blocker_xx_0_0
@@ -194,7 +194,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [432, 60.0]
+    coordinate: [872, 160.0]
     rotation: 0
     state: enabled
 - name: i2c_register_source_0
@@ -212,11 +212,12 @@ blocks:
     prelude_script: ''
     read_length: '2'
     sample_rate: samp_rate
+    signed: 'False'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [192, 100.0]
+    coordinate: [392, 144.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0
@@ -296,7 +297,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [688, 48.0]
+    coordinate: [1336, 196.0]
     rotation: 0
     state: true
 - name: qtgui_time_sink_x_0
@@ -393,7 +394,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [712, 380.0]
+    coordinate: [1448, 708.0]
     rotation: 0
     state: true
 - name: rational_resampler_xxx_0
@@ -419,7 +420,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 204.0]
+    coordinate: [1016, 424.0]
     rotation: 180
     state: enabled
 
