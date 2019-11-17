@@ -1,6 +1,39 @@
+options:
+  parameters:
+    author: ''
+    category: '[GRC Hier Blocks]'
+    cmake_opt: ''
+    comment: ''
+    copyright: ''
+    description: ''
+    gen_cmake: 'On'
+    gen_linking: dynamic
+    generate_options: qt_gui
+    hier_block_src_path: '.:'
+    id: light_sensor
+    max_nouts: '0'
+    output_language: python
+    placement: (0,0)
+    qt_qss_theme: ''
+    realtime_scheduling: ''
+    run: 'True'
+    run_command: '{python} -u {filename}'
+    run_options: prompt
+    sizing_mode: fixed
+    thread_safe_setters: ''
+    title: Light Sensors
+    window_size: ''
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 8]
+    rotation: 0
+    state: enabled
+
 blocks:
-- id: variable
-  name: samp_rate
+- name: samp_rate
+  id: variable
   parameters:
     comment: ''
     value: 1e3
@@ -8,53 +41,33 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate:
-    - 408.0
-    - 40.0
+    coordinate: [408.0, 40.0]
     rotation: 0
     state: enabled
-- id: blocks_file_sink
-  name: blocks_file_sink_0
+- name: blocks_file_source_0
+  id: blocks_file_source
   parameters:
     affinity: ''
     alias: ''
-    append: 'False'
+    begin_tag: pmt.PMT_NIL
     comment: ''
     file: /home/ktemkin/Projects/talk-demos/supercon19/capture_two_lights_1k_float.bin
+    length: '0'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    repeat: 'True'
     type: float
-    unbuffered: 'False'
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate:
-    - 640.0
-    - 316.0
+    coordinate: [232, 312.0]
     rotation: 0
-    state: disabled
-- id: greatfet_adc_source
-  name: greatfet_adc_source_0
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    prelude: ''
-    prelude_script: ''
-    sample_rate: samp_rate
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate:
-    - 144.0
-    - 252.0
-    rotation: 0
-    state: enabled
-- id: qtgui_freq_sink_x
-  name: qtgui_freq_sink_x_0
+    state: true
+- name: qtgui_freq_sink_x_0
+  id: qtgui_freq_sink_x
   parameters:
     affinity: ''
     alias: ''
@@ -130,13 +143,11 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate:
-    - 640.0
-    - 164.0
+    coordinate: [640, 324.0]
     rotation: 0
     state: disabled
-- id: qtgui_sink_x
-  name: qtgui_sink_x_0
+- name: qtgui_sink_x_0
+  id: qtgui_sink_x
   parameters:
     affinity: ''
     alias: ''
@@ -161,57 +172,12 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate:
-    - 632.0
-    - 472.0
-    rotation: 0
-    state: true
-connections:
-- - greatfet_adc_source_0
-  - '0'
-  - blocks_file_sink_0
-  - '0'
-- - greatfet_adc_source_0
-  - '0'
-  - qtgui_freq_sink_x_0
-  - '0'
-- - greatfet_adc_source_0
-  - '0'
-  - qtgui_sink_x_0
-  - '0'
-metadata:
-  file_format: 1
-options:
-  parameters:
-    author: ''
-    category: '[GRC Hier Blocks]'
-    cmake_opt: ''
-    comment: ''
-    copyright: ''
-    description: ''
-    gen_cmake: 'On'
-    gen_linking: dynamic
-    generate_options: qt_gui
-    hier_block_src_path: '.:'
-    id: light_sensor
-    max_nouts: '0'
-    output_language: python
-    placement: (0,0)
-    qt_qss_theme: ''
-    realtime_scheduling: ''
-    run: 'True'
-    run_command: '{python} -u {filename}'
-    run_options: prompt
-    sizing_mode: fixed
-    thread_safe_setters: ''
-    title: Light Sensors
-    window_size: ''
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate:
-    - 8
-    - 8
+    coordinate: [632.0, 472.0]
     rotation: 0
     state: enabled
+
+connections:
+- [blocks_file_source_0, '0', qtgui_sink_x_0, '0']
+
+metadata:
+  file_format: 1
