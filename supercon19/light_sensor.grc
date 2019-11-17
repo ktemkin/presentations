@@ -9,8 +9,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 408.0
-    - 40.0
+    - 204.0
+    - 20.0
     rotation: 0
     state: enabled
 - id: blocks_file_sink
@@ -29,8 +29,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 640.0
-    - 316.0
+    - 320.0
+    - 158.0
     rotation: 0
     state: disabled
 - id: greatfet_adc_source
@@ -49,8 +49,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 144.0
-    - 252.0
+    - 72.0
+    - 126.0
     rotation: 0
     state: enabled
 - id: qtgui_freq_sink_x
@@ -131,8 +131,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 640.0
-    - 164.0
+    - 320.0
+    - 82.0
     rotation: 0
     state: disabled
 - id: qtgui_sink_x
@@ -162,8 +162,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 632.0
-    - 472.0
+    - 316.0
+    - 236.0
     rotation: 0
     state: true
 connections:

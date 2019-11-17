@@ -18,8 +18,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 16.0
-    - 856.0
+    - 8.0
+    - 428.0
     rotation: 0
     state: true
 - id: variable_qtgui_range
@@ -41,8 +41,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 16.0
-    - 584.0
+    - 8.0
+    - 292.0
     rotation: 0
     state: true
 - id: variable_qtgui_range
@@ -64,8 +64,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 16.0
-    - 1096.0
+    - 8.0
+    - 548.0
     rotation: 0
     state: true
 - id: variable
@@ -78,8 +78,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 368.0
-    - 24.0
+    - 184.0
+    - 12.0
     rotation: 0
     state: enabled
 - id: analog_rail_ff
@@ -97,8 +97,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 560.0
-    - 904.0
+    - 280.0
+    - 452.0
     rotation: 0
     state: true
 - id: audio_sink
@@ -116,8 +116,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 1696.0
-    - 1016.0
+    - 848.0
+    - 508.0
     rotation: 0
     state: enabled
 - id: blocks_add_xx
@@ -136,8 +136,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 1456.0
-    - 992.0
+    - 728.0
+    - 496.0
     rotation: 0
     state: true
 - id: blocks_delay
@@ -157,8 +157,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 912.0
-    - 1160.0
+    - 456.0
+    - 580.0
     rotation: 0
     state: enabled
 - id: blocks_multiply_const_vxx
@@ -177,8 +177,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 432.0
-    - 744.0
+    - 216.0
+    - 372.0
     rotation: 0
     state: enabled
 - id: blocks_multiply_const_vxx
@@ -197,8 +197,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 1136.0
-    - 1160.0
+    - 568.0
+    - 580.0
     rotation: 0
     state: true
 - id: blocks_multiply_const_vxx
@@ -217,8 +217,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 864.0
-    - 920.0
+    - 432.0
+    - 460.0
     rotation: 0
     state: true
 - id: blocks_multiply_const_vxx
@@ -237,8 +237,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 864.0
-    - 760.0
+    - 432.0
+    - 380.0
     rotation: 0
     state: true
 - id: dc_blocker_xx
@@ -261,8 +261,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 864.0
-    - 120.0
+    - 432.0
+    - 60.0
     rotation: 0
     state: enabled
 - id: i2c_register_source
@@ -285,8 +285,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 384.0
-    - 200.0
+    - 192.0
+    - 100.0
     rotation: 0
     state: enabled
 - id: qtgui_freq_sink_x
@@ -367,8 +367,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 1376.0
-    - 96.0
+    - 688.0
+    - 48.0
     rotation: 0
     state: true
 - id: qtgui_time_sink_x
@@ -466,8 +466,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 1568.0
-    - 744.0
+    - 784.0
+    - 372.0
     rotation: 0
     state: true
 - id: rational_resampler_xxx
@@ -494,8 +494,8 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate:
-    - 832.0
-    - 424.0
+    - 416.0
+    - 212.0
     rotation: 180
     state: enabled
 connections:

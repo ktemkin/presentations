@@ -1,3 +1,80 @@
+blocks:
+- id: variable
+  name: samp_rate
+  parameters:
+    comment: ''
+    value: '1000'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 204.0
+    - 20.0
+    rotation: 0
+    state: enabled
+- id: i2c_register_source
+  name: i2c_register_source_0
+  parameters:
+    address: '41'
+    affinity: ''
+    alias: ''
+    comment: ''
+    data_to_write: '0xb4'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    normalize_by: '65535'
+    prelude: ''
+    prelude_script: /home/ktemkin/Projects/talk-demos/supercon19/color_light_sensor_prelude.py
+    read_length: '2'
+    sample_rate: samp_rate
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 72.0
+    - 208.0
+    rotation: 0
+    state: true
+- id: qtgui_sink_x
+  name: qtgui_sink_x_0
+  parameters:
+    affinity: ''
+    alias: ''
+    bw: samp_rate
+    comment: ''
+    fc: '0'
+    fftsize: '1024'
+    gui_hint: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    name: '""'
+    plotconst: 'True'
+    plotfreq: 'True'
+    plottime: 'True'
+    plotwaterfall: 'True'
+    rate: '10'
+    showports: 'False'
+    showrf: 'False'
+    type: float
+    wintype: firdes.WIN_BLACKMAN_hARRIS
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate:
+    - 356.0
+    - 232.0
+    rotation: 0
+    state: true
+connections:
+- - i2c_register_source_0
+  - '0'
+  - qtgui_sink_x_0
+  - '0'
+metadata:
+  file_format: 1
 options:
   parameters:
     author: ''
@@ -27,77 +104,8 @@ options:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 8]
+    coordinate:
+    - 8
+    - 8
     rotation: 0
     state: enabled
-
-blocks:
-- name: samp_rate
-  id: variable
-  parameters:
-    comment: ''
-    value: '1000'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [408, 40.0]
-    rotation: 0
-    state: enabled
-- name: i2c_register_source_0
-  id: i2c_register_source
-  parameters:
-    address: '41'
-    affinity: ''
-    alias: ''
-    comment: ''
-    data_to_write: '0xb4'
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    normalize_by: '65535'
-    prelude: ''
-    prelude_script: /home/ktemkin/Projects/talk-demos/supercon19/color_light_sensor_prelude.py
-    read_length: '2'
-    sample_rate: samp_rate
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [144, 416.0]
-    rotation: 0
-    state: true
-- name: qtgui_sink_x_0
-  id: qtgui_sink_x
-  parameters:
-    affinity: ''
-    alias: ''
-    bw: samp_rate
-    comment: ''
-    fc: '0'
-    fftsize: '1024'
-    gui_hint: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    name: '""'
-    plotconst: 'True'
-    plotfreq: 'True'
-    plottime: 'True'
-    plotwaterfall: 'True'
-    rate: '10'
-    showports: 'False'
-    showrf: 'False'
-    type: float
-    wintype: firdes.WIN_BLACKMAN_hARRIS
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [712, 464.0]
-    rotation: 0
-    state: true
-
-connections:
-- [i2c_register_source_0, '0', qtgui_sink_x_0, '0']
-
-metadata:
-  file_format: 1
